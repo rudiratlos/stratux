@@ -1,6 +1,6 @@
 # stratux_opts
 
-shell script for setup and power usage optimizazion for stratux on rpi platform (rpi 3B)
+shell script for setup and power usage optimization for stratux on rpi platform (rpi 3B)
 
 - script will automatically start at boot time
 - switch hdmi port off, to reduce power consumption (will save ~25mA)
@@ -9,8 +9,8 @@ shell script for setup and power usage optimizazion for stratux on rpi platform 
 - power governor (cpufrequtils) will throttle rpi cores during normal operation
 - during bootphase rpi will run at maximum speed for 20secs, to speed up the boot process 
 
-Benefit:
-My stratux system has doubled the operation time from 1:15h to 2:30h\
+**Benefit:**
+My stratux system has **doubled** its operation time from 1:15h to 2:30h
 
 My config:
 - stratux Europe Edition 1.6r1-eu028
@@ -28,6 +28,8 @@ script functions:
 - status (shows hdmi, pwr governor statistics)
 
 ~~~bash
+status report:
+
 state 0x120000 [TV is off]
 
 analyzing CPU 0-3:
@@ -95,13 +97,14 @@ Persistent logging: Write logs to micro SD instead of RAM:\
 
 ## GPIO controlled fan
 
-Using a circuit like this, will control the fan by temperature hysteresis.\
+Using a circuit like below, will control the fan by temperature hysteresis.\
 Just use the gpio-fan overlay in /boot/config.txt e.g.
 ~~~bash
 dtoverlay=gpio-fan,gpiopin=17,temp=65000
 ~~~
 This will switch the fan on, if temperature is above 65 degrees.\
 GPIO17 (Pin11) will be used for control.
-The fan will on run, if needed. This will save battery power.
+The fan will run only, if needed. 
+This will save battery power.
 
 ![schematic](./img/stratux_fan.png)
