@@ -151,6 +151,14 @@ function disable_pwrsave {
   return $_ret
 }
 
+function script_update {
+  cd /usr/local/sbin
+  wget -qN https://raw.githubusercontent.com/rudiratlos/stratux/master/$snam
+  _ret=$?
+  chmod +x $snam
+  return $_ret
+}
+
 snam="${0##*/}"
 bckext=`date +"%Y%m%d%H%M%S"`
 ret=0
@@ -190,13 +198,17 @@ case "$1" in
     disable_pwrsave "$2"
     ret=$?
     ;;
+  update)
+    script_update "$2"
+    ret=$?
+    ;;    
   status)
     /usr/bin/tvservice -s
     /usr/bin/cpufreq-info "$2"
     ret=$?
     ;;
   *)
-  echo "Usage: $snam start | stop | status | setup [sw|svc|bt|cfg] | remove"
+  echo "Usage: $snam start | stop | status | setup [sw|svc|bt|cfg] | remove | update"
   echo "  setup or remove option can only be run, if stratux filesystem is writeable"
 esac
 
