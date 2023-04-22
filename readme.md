@@ -10,7 +10,7 @@ shell script for setup and power usage optimization for stratux on rpi platform 
 - during bootphase rpi will run at maximum speed for 20secs, to speed up the boot process 
 
 **Benefit:**
-My stratux system has **doubled** its operation time from 1:15h to 2:30h
+My stratux system has **doubled** its operation time from 1:15h to 2:30h, fan was always on.
 
 My config:
 - stratux Europe Edition 1.6r1-eu028
@@ -106,5 +106,8 @@ This will switch the fan on, if temperature is above 65 degrees.\
 GPIO17 (Pin11) will be used for control.
 The fan will run only, if needed. 
 This will save battery power.
+If you want to use PWM (pulse width modulation) to control a fan,\
+use GPIO18 (Pin12). Pls. be aware, that a fan needs a pwm min freq.\
+otherwise it will not start reliably. 
 
 ![schematic](./img/stratux_fan.png)

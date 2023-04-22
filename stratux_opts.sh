@@ -1,5 +1,5 @@
 #!/bin/bash
-# V1.3 by Stefan Fischer 2023-04-17
+# V1.4 by Stefan Fischer 2023-04-17
 # idle pwr usage for rpi 3B  230 mA
 # idle pwr usage for rpi 3B+ 450 mA
 
@@ -43,6 +43,8 @@ function setup_cfg {
     echo "dtoverlay=pi3-disable-bt" >> $fn
     echo " " >> $fn
     echo "hdmi_blanking=2" >> $fn
+    echo "# fan control via PWM, use GPIO18 / HWpin 12" >> $fn
+    echo "# fan control via dtoverlay gpio-fan, use e.g. GPIO17" >> $fn
     echo "#dtoverlay=gpio-fan,gpiopin=17,temp=65000" >> $fn
   fi
   return 0
