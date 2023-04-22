@@ -100,12 +100,12 @@ Persistent logging: Write logs to micro SD instead of RAM:\
 Using a circuit like below, will control the fan by temperature hysteresis.\
 Just use the gpio-fan overlay in /boot/config.txt e.g.
 ~~~bash
-dtoverlay=gpio-fan,gpiopin=17,temp=65000
+dtoverlay=gpio-fan,gpiopin=17,temp=60000
 ~~~
-This will switch the fan on, if temperature is above 65 degrees.\
-GPIO17 (Pin11) will be used for control.
-The fan will run only, if needed. 
-This will save battery power.
+This will switch the fan on, if temperature is above 60 degrees.\
+GPIO17 (Pin11) will be used for control.\
+The fan will run only, if needed.\  
+This will save battery power.\
 If you want to use PWM (pulse width modulation) to control a fan,\
 use GPIO18 (Pin12). Pls. be aware, that a fan needs a pwm min freq.\
 otherwise it will not start reliably. 
