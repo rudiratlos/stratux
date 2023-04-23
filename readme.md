@@ -91,7 +91,7 @@ After the setup phase tasks:
 ## set filesystem to read only / writable
 
 go to stratux web gui setup page and locate Diagnostics section\
-Persistent logging: Write logs to micro SD instead of RAM:\
+Persistent logging: Write logs to micro SD instead of RAM:
 - writeable: toggle switch ON  (blue)
 - read only: toggle switch OFF (white)
 
@@ -104,7 +104,7 @@ dtoverlay=gpio-fan,gpiopin=17,temp=60000
 ~~~
 This will switch the fan on, if temperature is above 60 degrees.\
 GPIO17 (Pin11) will be used for control.\
-The fan will run only, if needed.\  
+The fan will run only, if needed.\
 This will save battery power.\
 If you want to use PWM (pulse width modulation) to control a fan,\
 use GPIO18 (Pin12). Pls. be aware, that a fan needs a pwm min freq.\
